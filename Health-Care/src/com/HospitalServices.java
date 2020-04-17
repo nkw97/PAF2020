@@ -18,7 +18,7 @@ public class HospitalServices {
 	   @GET
 	   @Path("/")
 	   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	   @Produces(MediaType.TEXT_PLAIN)
+	   @Produces(MediaType.TEXT_HTML)
 	
 	   public String viewHospital() {
 	
@@ -35,14 +35,14 @@ public class HospitalServices {
 	   @Produces(MediaType.TEXT_PLAIN)	   
 	   
 	   public String insertHospital(
-	    @FormParam("hosName") String hosName,
-	    @FormParam("hosTelNo") String hosTelNo,
-	    @FormParam("hosAddress") String hosAddress,
-	    @FormParam("hosEmail") String hosEmail
+    	@FormParam("hosName") String hos_name,
+	    @FormParam("hosTelephone") String hos_telephone,
+	    @FormParam("hosEmail") String hos_email,
+	    @FormParam("hosAddress") String hos_address
 	 )
 	  {
 	    
-		   String output = hospital1.insertHospital(hosName,hosTelNo ,hosAddress , hosEmail);
+		   String output = hospital1.insertHospital(hos_name,hos_telephone ,hos_email , hos_address);
 		   return output;
 	   }
 	   
@@ -53,18 +53,18 @@ public class HospitalServices {
 	   @Consumes(MediaType.APPLICATION_JSON)
 	   @Produces(MediaType.TEXT_PLAIN)
 	  
-	   public String updateItem(String itemData)
+	   public String updateHospital(String dData)
 	   {
 	     //Convert the input string to a JSON object
-	     JsonObject hospital = new JsonParser().parse(itemData).getAsJsonObject();
+	     JsonObject hospital = new JsonParser().parse(dData).getAsJsonObject();
 	   
 	     //Read the values from the JSON object
-	      String hosID = hospital.get("hosID").getAsString();
+	      String hosId = hospital.get("hosId").getAsString();
 	      String hosName = hospital.get("hosName").getAsString();
-	      String hosTelNo = hospital.get("hosTelNo").getAsString();
-	      String hosAddress = hospital.get("hosAddress").getAsString();
+	      String hosTelephone = hospital.get("hosTelephone").getAsString();
 	      String hosEmail = hospital.get("hosEmail").getAsString();
-	      String output = hospital1.updateHospital(hosID, hosName, hosTelNo, hosAddress, hosEmail);
+	      String hosAddress = hospital.get("hosAddress").getAsString();
+	      String output = hospital1.updateHospital(hosId, hosName, hosTelephone, hosEmail, hosAddress);
 
 	      return output;
 	   }
@@ -83,10 +83,10 @@ public class HospitalServices {
 	  
 	      //Read the value from the element <itemID>
 	   
-	      String hId = doc.select("itemID").text();
+	      String hosId = doc.select("hosID").text();
 	   
-	      String output = hospital1.deletaHospitals(hId);
-	   
+	      String output = hospital1.deletaHospitals(hosId);
+	    
 	      return output;
 	   }
 }
