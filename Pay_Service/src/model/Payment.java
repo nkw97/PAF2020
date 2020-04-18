@@ -46,9 +46,9 @@ public class Payment {
 // execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Inserted successfully";
+			output = "Payment added successfully";
 		} catch (Exception e) {
-			output = "Error while inserting the payment.";
+			output = "Error while adding the payment.";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -126,10 +126,10 @@ public class Payment {
 // execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Updated successfully";
+			output = "Payment updated successfully";
 		} 
 		catch (Exception e) {
-			output = "Error while updating the item.";
+			output = "Error while updating the payment.";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -154,9 +154,9 @@ public class Payment {
 // execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Deleted successfully";
+			output = "Payment cancelled successfully";
 		} catch (Exception e) {
-			output = "Error while deleting the item.";
+			output = "Error while cancelling the payment.";
 			System.err.println(e.getMessage());
 		}
 		return output;
