@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "8f1c73aa-ea87-445a-88c3-67e0c46cb863",
+		"name": "PAF_Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "View Payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Health-Care/PaymentService/Payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Health-Care",
+						"PaymentService",
+						"Payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "paymentReference",
+							"value": "020202020202",
+							"type": "text"
+						},
+						{
+							"key": "paymentMethod",
+							"value": "D/Card",
+							"type": "text"
+						},
+						{
+							"key": "paymentAmount",
+							"value": "5555.0",
+							"type": "text"
+						},
+						{
+							"key": "paymentDate",
+							"value": "2020-02-02",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Health-Care/PaymentService/Payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Health-Care",
+						"PaymentService",
+						"Payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Payment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"paymentID\":\"6\",\r\n \"paymentReference\":\"020202055555\",\r\n \"paymentMethod\":\"C/Card\",\r\n \"paymentAmount\":\"3500.0\",\r\n \"paymentDate\":\"2020-01-01\"\r\n} "
+				},
+				"url": {
+					"raw": "http://localhost:8080/Health-Care/PaymentService/Payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Health-Care",
+						"PaymentService",
+						"Payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Payment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<paymentData>\r\n <paymentID>2</paymentID>\r\n</paymentData>"
+				},
+				"url": {
+					"raw": "http://localhost:8080/Health-Care/PaymentService/Payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Health-Care",
+						"PaymentService",
+						"Payment"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
